@@ -1,0 +1,65 @@
+.kontakt { padding-block: var(--space-bezny); }
+
+.kontakt h2 { color: var(--uhel); }
+
+.kontakt-blok {
+  margin-top: var(--space-tesny);
+  font-style: normal;
+  max-width: 46rem;
+}
+
+.kontakt-nazev {
+  margin: 0 0 2rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-h3);
+  line-height: 1;
+  letter-spacing: -0.028em;
+  color: var(--uhel);
+}
+
+.kontakt-seznam { margin: 0; }
+
+.kontakt-seznam > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--hairline-tmava);
+}
+
+.kontakt-seznam dt { color: var(--inkoust-tlum); opacity: 0.75; padding-top: 0.15rem; }
+.kontakt-seznam dd { margin: 0; color: var(--uhel); }
+
+.kontakt-seznam a {
+  color: var(--uhel);
+  text-decoration: none;
+  background-image: linear-gradient(var(--mosaz), var(--mosaz));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: color 220ms var(--ease), background-size 280ms var(--ease);
+}
+
+.kontakt-seznam a:hover { color: var(--mosaz); }
+
+@media (max-width: 600px) {
+  .kontakt-seznam > div { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+}
+
+/* postupne odkryti radku kontaktu */
+.kontakt-seznam.je-videt > div {
+  animation: radek-nabehne 560ms var(--ease) both;
+  animation-delay: calc(var(--poradi) * 80ms);
+}
+
+.kontakt-seznam:not(.je-videt) > div { opacity: 0; }
+
+@keyframes radek-nabehne {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kontakt-seznam:not(.je-videt) > div { opacity: 1; }
+}

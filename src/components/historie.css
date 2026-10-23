@@ -1,0 +1,205 @@
+.historie { padding-block: var(--space-bezny) var(--space-siroky); }
+
+.historie-nadpis {
+  max-width: 12ch;
+  margin-bottom: var(--space-tesny);
+  color: var(--uhel);
+}
+
+/* --- osa ---
+   Rada se drzi citelne miry, jinak sipka odplave o metr od nadpisu. */
+
+.osa {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 58rem;
+  --sloupec-roku: clamp(5.5rem, 9vw, 8rem);
+  --uzel: 9px;
+}
+
+.osa-bod {
+  position: relative;
+  padding-left: var(--odklon, 0px);
+  transition: padding-left 420ms var(--ease);
+}
+
+/* postupny nabeh radku pri prvnim zobrazeni */
+.osa.je-videt .osa-bod {
+  animation: bod-nabehne 620ms var(--ease) both;
+  animation-delay: calc(var(--poradi) * 55ms);
+}
+
+@keyframes bod-nabehne {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.osa:not(.je-videt) .osa-bod { opacity: 0; }
+
+/* svisla linka osy prochazi uzly */
+.osa-linka {
+  position: absolute;
+  left: calc(var(--sloupec-roku) + var(--odklon, 0px));
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--hairline-tmava);
+}
+
+.osa-bod:first-child .osa-linka { top: 1.9rem; }
+.je-zlom-vypaleni .osa-linka { bottom: 58%; }
+
+/* zlom 1421 — linka se preruší a pokracuje tecovana o kus vedle */
+.je-zlom-vypaleni::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--sloupec-roku) + var(--odklon, 0px) + 40px);
+  top: 42%;
+  bottom: 0;
+  border-left: 1px dashed var(--hairline-tmava);
+}
+
+.je-zlom-dnes .osa-linka { bottom: auto; height: 1.9rem; }
+
+/* --- radek zastaveni --- */
+
+.osa-spoust {
+  display: grid;
+  grid-template-columns: var(--sloupec-roku) var(--uzel) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0 clamp(1rem, 2.2vw, 1.75rem);
+  width: 100%;
+  padding: 1.35rem 0;
+  min-height: 44px;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--hairline-tmava);
+  cursor: pointer;
+  text-align: left;
+  color: var(--uhel);
+  font-family: inherit;
+}
+
+.osa-bod:first-child .osa-spoust { border-top: 0; }
+
+.osa-rok {
+  justify-self: end;
+  color: var(--inkoust-tlum);
+  white-space: nowrap;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  transition: color 260ms var(--ease);
+}
+
+/* uzel sedi presne na ose — ctverec, zadne kolecko */
+.osa-uzel {
+  width: var(--uzel);
+  height: var(--uzel);
+  margin-left: calc(var(--uzel) / -2 - 0.5px);
+  background: var(--papir);
+  box-shadow: inset 0 0 0 1px var(--inkoust-tlum);
+  transition: background-color 300ms var(--ease), box-shadow 300ms var(--ease), transform 380ms var(--ease);
+}
+
+.osa-titulek {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-h3);
+  line-height: 1;
+  letter-spacing: -0.028em;
+  transition: transform 340ms var(--ease), color 260ms var(--ease);
+}
+
+/* --- stavy --- */
+
+.osa-spoust:hover .osa-titulek { transform: translateX(7px); }
+.osa-spoust:hover .osa-rok { color: var(--mosaz); }
+.osa-spoust:hover .osa-uzel { transform: rotate(45deg) scale(1.15); }
+
+.je-otevreny .osa-rok { color: var(--mosaz); }
+.je-otevreny .osa-uzel {
+  background: var(--mosaz);
+  box-shadow: inset 0 0 0 1px var(--mosaz);
+  transform: rotate(45deg);
+}
+
+.je-zlom-dnes .osa-titulek { color: var(--mosaz); }
+.je-zlom-vypaleni .osa-uzel { box-shadow: inset 0 0 0 1px var(--mosaz); }
+
+/* sipka ze dvou tahu */
+.osa-sipka {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  transition: transform 360ms var(--ease);
+}
+
+.osa-sipka::before,
+.osa-sipka::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 1px;
+  background: var(--inkoust-tlum);
+  transition: background-color 260ms var(--ease);
+}
+
+.osa-sipka::before { left: 0; transform: rotate(45deg); }
+.osa-sipka::after { right: 0; transform: rotate(-45deg); }
+
+.je-otevreny .osa-sipka { transform: rotate(180deg); }
+
+.osa-spoust:hover .osa-sipka::before,
+.osa-spoust:hover .osa-sipka::after,
+.je-otevreny .osa-sipka::before,
+.je-otevreny .osa-sipka::after { background: var(--mosaz); }
+
+/* --- rozbaleny text --- */
+
+.osa-obal {
+  display: grid;
+  grid-template-columns: calc(var(--sloupec-roku) + var(--uzel)) minmax(0, 1fr);
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+  padding-bottom: 1.6rem;
+}
+
+.osa-obal[hidden] { display: none; }
+
+.osa-text {
+  grid-column: 2;
+  margin: 0;
+  max-width: 54ch;
+  color: var(--inkoust-tlum);
+  animation: text-rozbal 420ms var(--ease) both;
+}
+
+@keyframes text-rozbal {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- popis stavby --- */
+
+.popis-stavby { margin-top: var(--space-bezny); max-width: 58rem; }
+.popis-stavby-stitek { color: var(--mosaz); margin: 0 0 1.5rem; }
+.popis-stavby-text { color: var(--inkoust-tlum); max-width: none; }
+
+@media (min-width: 900px) {
+  .popis-stavby-text { column-count: 2; column-gap: 3rem; }
+}
+
+@media (max-width: 720px) {
+  .osa { --sloupec-roku: 5rem; }
+  .osa-bod { padding-left: 0; }
+  .osa-linka, .je-zlom-vypaleni::after, .osa-uzel { display: none; }
+  .osa-spoust { grid-template-columns: var(--sloupec-roku) minmax(0, 1fr) auto; gap: 0.9rem; }
+  .osa-rok { justify-self: start; font-size: 0.625rem; }
+  .osa-obal { grid-template-columns: minmax(0, 1fr); }
+  .osa-text { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .osa:not(.je-videt) .osa-bod { opacity: 1; }
+}

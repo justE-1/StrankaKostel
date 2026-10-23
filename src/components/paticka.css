@@ -1,0 +1,46 @@
+.paticka { padding-block: var(--space-tesny); border-top: 1px solid var(--hairline); }
+
+.paticka-nadpis { color: var(--mosaz); margin: 0 0 1.75rem; }
+
+.paticka-zdroje {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 90ch;
+}
+
+.paticka-zdroje li {
+  color: var(--papir-tlum);
+  opacity: 0.72;
+  text-transform: none;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  padding-left: 1.5rem;
+  text-indent: -1.5rem;
+}
+
+.paticka-spodek {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.paticka-spodek p { margin: 0; color: var(--papir-tlum); opacity: 0.6; text-transform: none; letter-spacing: 0.08em; max-width: none; }
+
+.paticka-spodek a {
+  color: var(--papir-tlum);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.paticka-spodek a:hover { color: var(--mosaz); }

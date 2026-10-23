@@ -1,0 +1,43 @@
+.fakta { padding-bottom: var(--space-tesny); }
+
+/* rada je zarovnana vlevo, posledni ctvrtina sirky zustava zamerne prazdna */
+.fakta-rada {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  max-width: 75%;
+}
+
+.fakta-polozka {
+  padding: 0 clamp(0.9rem, 2vw, 2rem);
+  border-left: 1px solid var(--hairline-tmava);
+}
+
+.fakta-polozka:first-child { padding-left: 0; border-left: 0; }
+
+.fakta-cislo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-h3);
+  line-height: 1.1;
+  color: var(--uhel);
+  white-space: nowrap;
+}
+
+.fakta-popis {
+  margin: 0.9rem 0 0;
+  color: var(--inkoust-tlum);
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  text-transform: none;
+}
+
+@media (max-width: 900px) {
+  .fakta-rada { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; row-gap: 2.5rem; }
+  .fakta-polozka:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+
+@media (max-width: 460px) {
+  .fakta-cislo { font-size: 1.4rem; white-space: normal; }
+}

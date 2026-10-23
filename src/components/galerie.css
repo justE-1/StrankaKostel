@@ -1,0 +1,118 @@
+.galerie { padding-block: var(--space-bezny) var(--space-bezny); }
+
+.galerie-uvod {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.galerie-podtitulek { color: var(--papir-tlum); margin-top: 1.5rem; max-width: 34ch; }
+
+/* --- prekryvna dvojice, ne posuvnik --- */
+
+.dvojice { position: relative; padding-bottom: 5rem; }
+
+.dvojice figure { margin: 0; }
+
+.dvojice-archiv {
+  width: 82%;
+  transform: rotate(-1.5deg);
+  transition: transform 300ms var(--ease), opacity 300ms var(--ease);
+}
+
+.dvojice-dnes {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  transform: rotate(1deg);
+  transition: transform 300ms var(--ease), opacity 300ms var(--ease);
+}
+
+.dvojice img { border: 1px solid rgba(185, 175, 155, 0.3); }
+
+.dvojice figcaption {
+  margin-top: 0.85rem;
+  color: var(--papir-tlum);
+  text-transform: none;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+
+@media (hover: hover) {
+  .dvojice:hover .dvojice-archiv,
+  .dvojice:hover .dvojice-dnes { opacity: 0.5; }
+  .dvojice-archiv:hover,
+  .dvojice-dnes:hover { opacity: 1 !important; transform: rotate(0deg); }
+}
+
+/* --- masonry ---
+   Sloupce misto grid-span: kazda fotka si nechava svuj pomer stran,
+   takze se portret necpe do vodorovneho pruhu. Nepravidelnost vznika
+   ze skutecnych rozmeru snimku, ne z nahodne zvolenych spanu. */
+
+.mrizka {
+  list-style: none;
+  margin: var(--space-tesny) 0 0;
+  padding: 0;
+  column-count: 3;
+  column-gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.mrizka-pole {
+  break-inside: avoid;
+  margin-bottom: 1px;
+  background: var(--uhel);
+  overflow: hidden;
+}
+
+.mrizka-pole img {
+  width: 100%;
+  height: auto;
+  transition: opacity 320ms var(--ease), transform 620ms var(--ease);
+}
+
+.mrizka-pole:hover img { opacity: 0.72; transform: scale(1.02); }
+
+.mrizka-pole.je-oblouk img { transform-origin: bottom center; }
+
+.snimek-spoust {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+/* postupne odkryti dlazdic */
+.mrizka.je-videt .mrizka-pole {
+  animation: dlazdice-nabehne 700ms var(--ease) both;
+  animation-delay: calc(var(--poradi) * 90ms);
+}
+
+.mrizka:not(.je-videt) .mrizka-pole { opacity: 0; }
+
+@keyframes dlazdice-nabehne {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 900px) {
+  .galerie-uvod { grid-template-columns: minmax(0, 1fr); }
+  .mrizka { column-count: 2; }
+}
+
+@media (max-width: 640px) {
+  .mrizka { column-count: 1; }
+  .dvojice-archiv { width: 100%; }
+  .dvojice-dnes { position: static; width: 70%; margin: 1.5rem 0 0 auto; }
+  .dvojice { padding-bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mrizka:not(.je-videt) .mrizka-pole { opacity: 1; }
+}

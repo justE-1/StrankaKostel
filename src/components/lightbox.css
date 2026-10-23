@@ -1,0 +1,59 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(3rem, 8vh, 6rem) clamp(0.75rem, 3vw, 3rem);
+  background: rgba(14, 13, 11, 0.97);
+}
+
+.lightbox-snimek {
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.lightbox-zavrit,
+.lightbox-sipka {
+  background: none;
+  border: 1px solid var(--hairline);
+  color: var(--papir);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: border-color 200ms var(--ease), color 200ms var(--ease);
+}
+
+.lightbox-zavrit:hover,
+.lightbox-sipka:hover { border-color: var(--mosaz); color: var(--mosaz); }
+
+.lightbox-zavrit {
+  position: absolute;
+  top: clamp(0.75rem, 2vh, 1.5rem);
+  right: clamp(0.75rem, 3vw, 3rem);
+}
+
+.lightbox-popisek {
+  position: absolute;
+  left: clamp(0.75rem, 3vw, 3rem);
+  bottom: clamp(0.75rem, 3vh, 2rem);
+  margin: 0;
+  max-width: 60ch;
+  color: var(--papir-tlum);
+  text-transform: none;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 600px) {
+  .lightbox { grid-template-columns: minmax(0, 1fr); }
+  .lightbox-sipka.je-vlevo { position: absolute; left: 0.75rem; bottom: 5rem; }
+  .lightbox-sipka.je-vpravo { position: absolute; right: 0.75rem; bottom: 5rem; }
+}

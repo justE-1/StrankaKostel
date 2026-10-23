@@ -1,0 +1,34 @@
+:root {
+  /* plochy */
+  --uhel: #0e0d0b;
+  --kamen: #1f1c17;
+  --kamen-mez: #17150f;
+  --papir: #e8e2d6;
+  --papir-tlum: #b9af9b;
+  --mosaz: #b08d3f;
+
+  /* sekundarni text na papirove plose (--papir-tlum by neprosel kontrastem) */
+  --inkoust-tlum: #6b6152;
+
+  /* pismo */
+  --font-display: 'Bricolage Grotesque', 'Arial Black', sans-serif;
+  --font-text: 'Libre Franklin', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --text-mono: 0.75rem;
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-h2: clamp(2.25rem, 1.5rem + 3.2vw, 4.25rem);
+  --text-h1: clamp(2.5rem, 1rem + 5.6vw, 5.75rem);
+
+  /* nepravidelny rytmus */
+  --space-tesny: 4rem;
+  --space-bezny: 8rem;
+  --space-siroky: 14rem;
+
+  --okraj: clamp(1.25rem, 5vw, 6rem);
+  --hairline: rgba(185, 175, 155, 0.25);
+  --hairline-tmava: rgba(14, 13, 11, 0.22);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

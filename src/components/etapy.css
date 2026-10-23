@@ -1,0 +1,122 @@
+.etapy { padding-block: var(--space-bezny); }
+
+.etapy-podtitulek {
+  color: var(--papir-tlum);
+  margin-top: 1.25rem;
+  max-width: 42ch;
+}
+
+/* --- jeden pruh rozdeleny na tri faze --- */
+
+.pruh { margin-top: var(--space-tesny); }
+
+.pruh-drah {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.pruh-usek {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.6rem clamp(1rem, 2.5vw, 2rem) 1.5rem;
+  min-height: 44px;
+  background: var(--kamen);
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--papir-tlum);
+  font-family: var(--font-text);
+  transition: color 260ms var(--ease);
+}
+
+/* mosazna vypln najizdi zleva — animuje se transform, ne sirka */
+.pruh-vypln {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--mosaz);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 420ms var(--ease);
+}
+
+.pruh-usek.je-vybrany { color: var(--uhel); }
+.pruh-usek.je-vybrany .pruh-vypln { transform: scaleX(1); }
+.pruh-usek:not(.je-vybrany):hover { color: var(--papir); }
+.pruh-usek:not(.je-vybrany):hover .pruh-vypln { transform: scaleX(1); background: var(--kamen-mez); }
+
+.pruh-cislo { opacity: 0.75; letter-spacing: 0.2em; }
+
+.pruh-nazev {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* nabeh pruhu pri prvnim zobrazeni */
+.pruh-drah .pruh-usek {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.pruh-drah.je-videt .pruh-usek {
+  opacity: 1;
+  transform: none;
+  transition: opacity 520ms var(--ease) var(--zpozdeni), transform 520ms var(--ease) var(--zpozdeni), color 260ms var(--ease);
+}
+
+.pruh-poznamka {
+  margin: 1.25rem 0 0;
+  color: var(--papir-tlum);
+  opacity: 0.7;
+  text-transform: none;
+  letter-spacing: 0.1em;
+}
+
+/* --- panel s popisem vybrane faze --- */
+
+.faze-panel {
+  margin-top: var(--space-tesny);
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(1.5rem, 5vw, 4.5rem);
+  align-items: start;
+  border-top: 1px solid var(--hairline);
+  padding-top: 2.5rem;
+}
+
+.faze-text {
+  margin: 0;
+  color: var(--papir-tlum);
+  animation: faze-nabehne 420ms var(--ease) both;
+}
+
+.faze-komentar {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--papir);
+  max-width: 24ch;
+}
+
+@keyframes faze-nabehne {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 780px) {
+  .pruh-drah { grid-template-columns: minmax(0, 1fr); }
+  .faze-panel { grid-template-columns: minmax(0, 1fr); }
+}
