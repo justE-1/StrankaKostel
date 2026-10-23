@@ -136,7 +136,7 @@ export const ETAPY: Etapa[] = [
 
 export const DVOJICE: { archiv: Snimek; dnes: Snimek } = {
   archiv: {
-    soubor: '/assets/foto/pohlednice-1900.jpg',
+    soubor: 'assets/foto/pohlednice-1900.jpg',
     popisek:
       'Pohlednice „Pod Práčovem“, nakladatel J. Schütz, před rokem 1900. Věž ještě s cibulovou bání.',
     alt: 'Historická pohlednice: kostel na zalesněném skalním ostrohu nad kamenitým korytem Chrudimky',
@@ -144,7 +144,7 @@ export const DVOJICE: { archiv: Snimek; dnes: Snimek } = {
     vyska: 1049,
   },
   dnes: {
-    soubor: '/assets/foto/dron-2017-01.jpg',
+    soubor: 'assets/foto/dron-2017-01.jpg',
     popisek: 'Letecký pohled, 2017.',
     alt: 'Letecký snímek kostela na ostrožně nad údolím Chrudimky',
     sirka: 1600,
@@ -154,7 +154,7 @@ export const DVOJICE: { archiv: Snimek; dnes: Snimek } = {
 
 export const MRIZKA: Snimek[] = [
   {
-    soubor: '/assets/foto/dron-2017-02.jpg',
+    soubor: 'assets/foto/dron-2017-02.jpg',
     popisek: 'Kostel nad údolím Chrudimky, 2017.',
     alt: 'Letecký snímek kostela nad údolím Chrudimky',
     sirka: 1600,
@@ -163,14 +163,14 @@ export const MRIZKA: Snimek[] = [
     oblouk: true,
   },
   {
-    soubor: '/assets/foto/interier-lod-2026.jpg',
+    soubor: 'assets/foto/interier-lod-2026.jpg',
     popisek: 'Pohled od kruchty k presbytáři, srpen 2026.',
     alt: 'Interiér kostela: dřevěné lavice, křížová klenba a v pozadí hlavní oltář',
     sirka: 1600,
     vyska: 1200,
   },
   {
-    soubor: '/assets/foto/sindelova-strecha.jpg',
+    soubor: 'assets/foto/sindelova-strecha.jpg',
     popisek: 'Kostel s původní šindelovou střechou, první polovina 20. století.',
     alt: 'Černobílá fotografie kostela se šindelovou střechou',
     sirka: 1200,
@@ -178,14 +178,14 @@ export const MRIZKA: Snimek[] = [
     span: { sloupce: 1, radky: 3 },
   },
   {
-    soubor: '/assets/foto/interier-oltar-2026.jpg',
+    soubor: 'assets/foto/interier-oltar-2026.jpg',
     popisek: 'Hlavní oltář s obrazem svatého Jakuba, srpen 2026.',
     alt: 'Raně barokní hlavní oltář se sloupy a obrazem svatého Jakuba s poutnickou holí',
     sirka: 1200,
     vyska: 1600,
   },
   {
-    soubor: '/assets/foto/dron-2017-03.jpg',
+    soubor: 'assets/foto/dron-2017-03.jpg',
     popisek: 'Práčov z ptačí perspektivy, 2017.',
     alt: 'Letecký snímek vsi Práčov s kostelem',
     sirka: 1600,
@@ -193,21 +193,21 @@ export const MRIZKA: Snimek[] = [
     span: { sloupce: 1, radky: 1 },
   },
   {
-    soubor: '/assets/foto/krov-2026.jpg',
+    soubor: 'assets/foto/krov-2026.jpg',
     popisek: 'Barokní krov z opravy po roce 1657, srpen 2026.',
     alt: 'Pohled vzhůru do dřevěného krovu s tesanými trámy; místy prosvítá denní světlo',
     sirka: 1600,
     vyska: 1200,
   },
   {
-    soubor: '/assets/foto/interier-kruchta-2026.jpg',
+    soubor: 'assets/foto/interier-kruchta-2026.jpg',
     popisek: 'Kruchta s varhanami a malovaným parapetem, srpen 2026.',
     alt: 'Dřevěná kruchta s varhanami pod klenbou lodi, pod ní křížová cesta a lavice',
     sirka: 1200,
     vyska: 1600,
   },
   {
-    soubor: '/assets/foto/dron-2017-04.jpg',
+    soubor: 'assets/foto/dron-2017-04.jpg',
     popisek: 'Kostel a svídnická vyrovnávací věž, 2017.',
     alt: 'Letecký snímek kostela se svídnickou vyrovnávací věží',
     sirka: 1600,
@@ -215,21 +215,21 @@ export const MRIZKA: Snimek[] = [
     span: { sloupce: 1, radky: 1 },
   },
   {
-    soubor: '/assets/foto/varhany-2026.jpg',
+    soubor: 'assets/foto/varhany-2026.jpg',
     popisek: 'Varhany Josefa Ignáce Welzela z roku 1815, detail skříně.',
     alt: 'Detail varhanní skříně se zlacenou řezbou a cínovými píšťalami',
     sirka: 1200,
     vyska: 1600,
   },
   {
-    soubor: '/assets/foto/zvon-2026.jpg',
+    soubor: 'assets/foto/zvon-2026.jpg',
     popisek: 'Jediný dochovaný zvon ve zvonovém patře věže, srpen 2026.',
     alt: 'Bronzový zvon zavěšený v dřevěné zvonové stolici v patře věže',
     sirka: 1600,
     vyska: 1200,
   },
   {
-    soubor: '/assets/foto/koncert-anto-2025.jpg',
+    soubor: 'assets/foto/koncert-anto-2025.jpg',
     popisek: 'Večer v kostele, 19. června 2025.',
     alt: 'Vystoupení v interiéru kostela s lustrem a bočním oltářem',
     sirka: 1600,
@@ -237,14 +237,14 @@ export const MRIZKA: Snimek[] = [
     span: { sloupce: 2, radky: 1 },
   },
   {
-    soubor: '/assets/foto/interier-madona-2026.jpg',
+    soubor: 'assets/foto/interier-madona-2026.jpg',
     popisek: 'Socha Panny Marie Lurdské, srpen 2026.',
     alt: 'Polychromovaná socha Panny Marie Lurdské se sepjatýma rukama a růžencem',
     sirka: 1200,
     vyska: 1600,
   },
   {
-    soubor: '/assets/foto/dron-2017-05.jpg',
+    soubor: 'assets/foto/dron-2017-05.jpg',
     popisek: 'Kostel na horizontu, 2017.',
     alt: 'Letecký snímek kostela na zalesněném horizontu',
     sirka: 1400,

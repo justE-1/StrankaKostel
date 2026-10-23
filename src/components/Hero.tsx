@@ -55,7 +55,7 @@ export default function Hero() {
       <div className="hero-plocha">
         <img
           className="hero-poster"
-          src="/assets/foto/hero-poster.jpg"
+          src="assets/foto/hero-poster.jpg"
           alt=""
           width={1920}
           height={1440}

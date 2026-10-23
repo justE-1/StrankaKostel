@@ -53,7 +53,7 @@ export default function Vyzva() {
         <div className="vyzva-qr">
           <div className="vyzva-qr-ram">
             <img
-              src="/assets/qr-platba.svg"
+              src="assets/qr-platba.svg"
               width={240}
               height={240}
               alt="QR kód pro platbu na účet 6755789369/0800"
@@ -64,7 +64,7 @@ export default function Vyzva() {
       </div>
 
       <p className="vyzva-potvrzeni obal mono">
-        <a href="/dokumenty/potvrzeni-o-vedeni-uctu.pdf" target="_blank" rel="noopener">
+        <a href="dokumenty/potvrzeni-o-vedeni-uctu.pdf" target="_blank" rel="noopener">
           Potvrzení o vedení účtu (PDF)<span aria-hidden="true"> →</span>
         </a>
       </p>
